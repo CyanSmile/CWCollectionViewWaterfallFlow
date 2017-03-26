@@ -12,6 +12,7 @@
 
 #define Wide self.view.frame.size.width-20
 #define Height self.view.frame.size.height-30
+#define Random(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
 
 @interface ViewController () <CWCollectionViewLayoutDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -50,6 +51,7 @@ static NSString * const Identifier =  @"cellIdentitier";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CWCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:Identifier forIndexPath:indexPath];
+    cell.backgroundColor = Random(random()%256, random()%256, random()%256, 1);
     return cell;
 }
 
